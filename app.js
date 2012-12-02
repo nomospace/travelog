@@ -3,12 +3,11 @@
  */
 
 var routes = require('./routes');
-var user = require('./routes/list');
+var user = require('./routes/user');
 var config = require('./config');
 var http = require('http');
 var path = require('path');
 var express = require('express');
-
 var app = express();
 var appRoot = './' || __dirname;
 
@@ -32,7 +31,8 @@ app.configure('development', function() {
 });
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/list', user.list);
+app.get('/create', user.create);
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log("Express server listening on port " + app.get('port'));

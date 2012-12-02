@@ -5,4 +5,12 @@ html
     link(rel='stylesheet', href='/stylesheets/foundation.css')
     link(rel='stylesheet', href='/stylesheets/app.css')
   body
+    nav.top-bar
+      ul
+        li.name
+          h1
+            a #{title}
+      ul.right
+        li
+          a nomospace
     block content
