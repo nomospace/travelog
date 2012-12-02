@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  - var riddingName = '传说中的川藏线', username = 'nomospace'
+  - var riddingName = '传说中的川藏线'
   ul.breadcrumbs
     li
-      a(href='/') #{username}的骑行活动
+      a(href='/') #{User.name}的骑行活动
     li
       span #{riddingName}
   div.columns.side-column
@@ -20,6 +20,6 @@ block content
       h5 成员：
       a(href='/')
         img(src='http://tp3.sinaimg.cn/1760951922/50/5637592484/1')
-        | #{username}
+        | #{User.name}
   div.main-column.panel aaa
 

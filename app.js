@@ -21,9 +21,10 @@ app.configure(function() {
   app.use(express.methodOverride());
   app.use(express.cookieParser('your secret here'));
   app.use(express.session({secret: config.sessionSecret}));
-  app.use(app.router);
-  app.use(require('less-middleware')({src: appRoot + '/public'}));
   app.use(express.static(path.join(appRoot, 'public')));
+  app.use(require('less-middleware')({src: appRoot + '/public'}));
+  app.use(user.authUser);
+  app.use(app.router);
 });
 
 app.configure('production', function() {

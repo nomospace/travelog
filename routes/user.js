@@ -21,9 +21,15 @@ exports.doLogin = function(req, res) {
   var user = {name: name, pass: pass};
   // store session cookie
   genSession(user, res);
-  // TODO
-  res.locals({'currentUser': req.session.user});
+  res.locals({'User': req.session.user = user});
   res.redirect('/create');
+};
+
+exports.authUser = function(req, res, next) {
+  if (req.session.user) {
+    res.locals({'User': req.session.user});
+  }
+  return next();
 };
 
 function genSession(user, res) {
@@ -41,3 +47,4 @@ function encrypt(str, secret) {
   enc += cipher.final('hex');
   return enc;
 }
+
