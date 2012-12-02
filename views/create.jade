@@ -1,3 +1,25 @@
 extends layout
 
 block content
+  - var title = '传说中的川藏线', username = 'nomospace'
+  ul.breadcrumbs
+    li
+      a(href='/') #{username}的骑行活动
+    li
+      span #{title}
+  div.columns.side-column
+    div.panel.secondary.radius
+      h5 活动名称：
+      span #{title}
+    div.panel.secondary.radius
+      h5 行程：
+      span 总距离:2099757
+           起点:中国四川省成都市青羊区人民东路20号-94号
+           终点:中国西藏自治区拉萨市城关区江苏路22号 邮政编码: 850000
+    div.panel.secondary.radius
+      h5 成员：
+      a(href='/')
+        img(src='http://tp3.sinaimg.cn/1760951922/50/5637592484/1')
+        | #{username}
+  div.main-column.panel aaa
+

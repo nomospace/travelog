@@ -1,6 +1,7 @@
 doctype 5
 html
   head
+    meta(charset='utf8')
     title= title
     link(rel='stylesheet', href='/stylesheets/foundation.css')
     link(rel='stylesheet', href='/stylesheets/app.css')
@@ -9,8 +10,8 @@ html
       ul
         li.name
           h1
-            a #{title}
+            a(href='/') #{title}
       ul.right
         li
-          a nomospace
+          a(href='/') nomospace
     block content

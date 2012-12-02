@@ -26,8 +26,12 @@ app.configure(function() {
   app.use(express.static(path.join(appRoot, 'public')));
 });
 
-app.configure('development', function() {
+app.configure('production', function() {
   app.use(express.errorHandler());
+});
+
+app.configure('development', function() {
+  app.use(express.errorHandler({dumpExceptions: true, showStack: true}));
 });
 
 app.get('/', routes.index);

@@ -8,22 +8,35 @@
 :: Page Name 2
 */
 
-
 /* -----------------------------------------
-   Shared Styles
+  Shared Styles
 ----------------------------------------- */
 
-
-
 /* -----------------------------------------
-   Page Name 1
+  create
 ----------------------------------------- */
+.top-bar {
+  margin-bottom: 15px;
+}
 
+.breadcrumbs {
+  margin-left: 15px !important;
+  margin-right: 15px !important;
+}
 
+.side-column {
+  float: left;
+  width: 260px;
+}
 
+.main-column {
+  margin-left: 260px;
+  margin-right: 15px;
+  min-height: 400px;
+}
 
 /* -----------------------------------------
-   Page Name 2
+  Page Name 2
 ----------------------------------------- */
 
 
