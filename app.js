@@ -3,7 +3,7 @@
  */
 
 var routes = require('./routes');
-var user = require('./routes/user');
+var user = require('./routes/list');
 var config = require('./config');
 var http = require('http');
 var path = require('path');
