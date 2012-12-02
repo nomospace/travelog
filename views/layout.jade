@@ -13,8 +13,13 @@ html
             a(href='/') #{title}
       ul.right
         li
-          a(href='/') nomospace
+          if(locals.User)
+            a(href='/') #{User.name}
+          else
+            a(href='/login') 登录
     block content
-    script(src='/javascripts/jquery.js')
-    script(src='/javascripts/app.js')
-    script(src='/javascripts/#{title}.js')
+    script(src='/javascripts/lib/jquery.js')
+    script(src='/javascripts/lib/foundation.js')
+    block extrascript
+    script(src='/javascripts/app/main.js')
+    script(src='/javascripts/app/#{page}.js')

@@ -4,15 +4,15 @@ var config = require('../config');
 var crypto = require('crypto');
 
 exports.create = function(req, res) {
-  res.render('create', {title: 'create'});
+  res.render('create', {'page': 'create'});
 };
 
 exports.list = function(req, res) {
-  res.render('list', {title: 'list'});
+  res.render('list', {'page': 'list'});
 };
 
 exports.login = function(req, res) {
-  res.render('login', {title: 'login'});
+  res.render('login', {'page': 'login'});
 };
 
 exports.doLogin = function(req, res) {

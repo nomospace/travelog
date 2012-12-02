@@ -16,7 +16,6 @@
     $.fn.foundationTooltips ? $doc.foundationTooltips() : null;
     $.fn.foundationMagellan ? $doc.foundationMagellan() : null;
     $.fn.foundationClearing ? $doc.foundationClearing() : null;
-
     $.fn.placeholder ? $('input, textarea').placeholder() : null;
   });
 

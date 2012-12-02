@@ -25,6 +25,7 @@ app.configure(function() {
   app.use(require('less-middleware')({src: appRoot + '/public'}));
   app.use(user.authUser);
   app.use(app.router);
+  app.locals({'title': config.name});
 });
 
 app.configure('production', function() {

@@ -1,5 +1,9 @@
 extends layout
 
+block append extrascript
+  script(src='http://maps.google.com/maps/api/js?sensor=true')
+  script(src='/javascripts/lib/gmaps.js')
+
 block content
   - var riddingName = '传说中的川藏线'
   ul.breadcrumbs
@@ -21,5 +25,5 @@ block content
       a(href='/')
         img(src='http://tp3.sinaimg.cn/1760951922/50/5637592484/1')
         | #{User.name}
-  div.main-column.panel aaa
+  div#J_map.main-column.panel
 
