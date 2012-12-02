@@ -10,7 +10,8 @@
     "express": "3.0.3",
     "jade": "0.27.7",
     "less-middleware": "0.1.9",
-    "markdown": "0.4.0"
+    "markdown": "0.4.0",
+    "validator": "0.4.19"
   },
   "devDependencies": {},
   "repository": {

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  form(action='/login',method='post').four.columns
+    input(type='text',placeholder='用户名',name='name')
+    input(type='password',placeholder='密码',name='pass')
+    input(type='submit',value='登录')#J_submit.button.radius
+
