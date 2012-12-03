@@ -12,18 +12,35 @@ block content
     li
       span #{riddingName}
   div.columns.side-column
-    div.panel.secondary.radius
-      h5 活动名称：
-      span #{riddingName}
-    div.panel.secondary.radius
-      h5 行程：
-      span 总距离:2099757
-           起点:中国四川省成都市青羊区人民东路20号-94号
-           终点:中国西藏自治区拉萨市城关区江苏路22号 邮政编码: 850000
-    div.panel.secondary.radius
-      h5 成员：
-      a(href='/')
-        img(src='http://tp3.sinaimg.cn/1760951922/50/5637592484/1')
-        | #{User.name}
+    if(!User.name)
+      div.panel.secondary.radius
+        h5 活动名称：
+        span #{riddingName}
+      div.panel.secondary.radius
+        h5 行程：
+        span 总距离:2099757
+             起点:中国四川省成都市青羊区人民东路20号-94号
+             终点:中国西藏自治区拉萨市城关区江苏路22号 邮政编码: 850000
+      div.panel.secondary.radius
+        h5 成员：
+        ul.team-member
+          li
+            a(href='/',title='#{User.name}')
+              img(src='http://tp3.sinaimg.cn/1760951922/50/5637592484/1')
+              p #{User.name}
+    else
+      div.panel.secondary.radius
+        h5 设置活动名称
+          input.tour-name(type='text', placeholder='请输入名称')
+        h5 设置路线
+        div.tour-route
+          span 起点：
+            span.label.radius.set-position 使用当前位置
+          input.tour-from(type='text', placeholder='请输入起点')
+          span 终点：
+            span.label.radius.set-position 使用当前位置
+          input.tour-to(type='text', placeholder='请输入终点')
+          a.success.button 生成路线
+        h5 邀请朋友
   div#J_map.main-column.panel
 
