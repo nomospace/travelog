@@ -62,14 +62,19 @@
   cursor: pointer;
 }
 
-input.tour-to,
-input.tour-from,
-input.tour-name {
-  margin-top: 10px;
+.tour-route {
+  margin-bottom: 10px;
+}
+
+.tour-to,
+.tour-from,
+.tour-name,
+.invite-friend {
+  margin-top: 10px !important;
 }
 
 /* -----------------------------------------
-  Page Name 2
+ Page Name 2
 ----------------------------------------- */
 
 

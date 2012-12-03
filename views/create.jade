@@ -12,7 +12,7 @@ block content
     li
       span #{riddingName}
   div.columns.side-column
-    if(!User.name)
+    if(User.name)
       div.panel.secondary.radius
         h5 活动名称：
         span #{riddingName}
@@ -30,7 +30,7 @@ block content
               p #{User.name}
     else
       div.panel.secondary.radius
-        h5 设置活动名称
+        h5.foundicon-settings 设置活动名称
           input.tour-name(type='text', placeholder='请输入名称')
         h5 设置路线
         div.tour-route
@@ -41,6 +41,8 @@ block content
             span.label.radius.set-position 使用当前位置
           input.tour-to(type='text', placeholder='请输入终点')
           a.success.button 生成路线
-        h5 邀请朋友
+        h5.foundicon-plus 邀请朋友
+          input.invite-friend(type='text', placeholder='请输入用户名')
+          a.success.button 邀请
   div#J_map.main-column.panel
 
