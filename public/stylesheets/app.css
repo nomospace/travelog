@@ -1,4 +1,4 @@
-/* Artfully masterminded by ZURB  */
+/* common  */
 body {
   background: url('../images/bg.png') repeat;
 }
@@ -13,6 +13,17 @@ body {
 .panel.radius {
   border-bottom: 2px solid #e2e2e9;
   border-radius: 0 0 10px 10px;
+}
+
+.top-bar {
+  margin-bottom: 15px;
+  border-bottom: 3px solid #2daebf !important;
+}
+
+ul.breadcrumbs {
+  background-color: #fff;
+  margin-left: 15px !important;
+  margin-right: 15px !important;
 }
 
 /* --------------------------------------------------
@@ -30,20 +41,14 @@ body {
 /* -----------------------------------------
   create
 ----------------------------------------- */
-.top-bar {
-  margin-bottom: 15px;
-  border-bottom: 3px solid #2daebf !important;
-}
-
-ul.breadcrumbs {
-  background-color: #fff;
-  margin-left: 15px !important;
-  margin-right: 15px !important;
-}
 
 .side-column {
   float: left;
   width: 260px;
+}
+
+.tour-setup h5 {
+  vertical-align: top;
 }
 
 .main-column {
@@ -51,6 +56,10 @@ ul.breadcrumbs {
   margin-right: 15px;
   min-height: 500px;
   background-color: #fff;
+}
+
+.main-column img {
+  max-width: 10000px;
 }
 
 .team-member li {
@@ -73,12 +82,12 @@ ul.breadcrumbs {
   white-space: nowrap;
 }
 
-.set-position {
+.use-position {
   cursor: pointer;
 }
 
 .tour-route {
-  margin-bottom: 10px;
+  margin-bottom: 40px;
 }
 
 .tour-to,

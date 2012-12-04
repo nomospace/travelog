@@ -29,18 +29,18 @@ block content
               img(src='http://tp3.sinaimg.cn/1760951922/50/5637592484/1')
               p #{User.name}
     else
-      div.panel.secondary.radius
+      div.panel.secondary.radius.tour-setup
         h5.foundicon-settings 设置活动名称
           input.tour-name(type='text', placeholder='请输入名称')
         h5 设置路线
         div.tour-route
           span 起点：
-            span.label.radius.set-position 使用当前位置
+            span#J_from_position.label.radius.use-position 使用当前位置
           input.tour-from(type='text', placeholder='请输入起点')
           span 终点：
-            span.label.radius.set-position 使用当前位置
+            span#J_to_position.label.radius.use-position 使用当前位置
           input.tour-to(type='text', placeholder='请输入终点')
-          a.success.button 生成路线
+          a#J_generate_route.success.button 生成路线
         h5.foundicon-plus 邀请朋友
           input.invite-friend(type='text', placeholder='请输入用户名')
           a.success.button 邀请
