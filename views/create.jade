@@ -12,7 +12,7 @@ block content
     li
       span #{riddingName}
   div.columns.side-column
-    if(User.name)
+    if(!User.name)
       div.panel.secondary.radius
         h5 活动名称：
         span #{riddingName}

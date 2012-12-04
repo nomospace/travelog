@@ -1,6 +1,21 @@
 /* Artfully masterminded by ZURB  */
+body {
+  background: url('../images/bg.png') repeat;
+}
 
-/* -------------------------------------------------- 
+.panel {
+  border: 0 none;
+  background-color: #fff;
+  border-top: 4px solid #2DAEBF;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.28);
+}
+
+.panel.radius {
+  border-bottom: 2px solid #e2e2e9;
+  border-radius: 0 0 10px 10px;
+}
+
+/* --------------------------------------------------
    Table of Contents
 -----------------------------------------------------
 :: Shared Styles
@@ -20,7 +35,8 @@
   border-bottom: 3px solid #2daebf !important;
 }
 
-.breadcrumbs {
+ul.breadcrumbs {
+  background-color: #fff;
   margin-left: 15px !important;
   margin-right: 15px !important;
 }
@@ -34,7 +50,6 @@
   margin-left: 260px;
   margin-right: 15px;
   min-height: 500px;
-  box-shadow: 0 0 8px #999;
   background-color: #fff;
 }
 
