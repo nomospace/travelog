@@ -17,10 +17,42 @@ $(function() {
     lng: 121.47675279999999
   });
 
+  map.setContextMenu({
+    control: 'map',
+    options: [
+      {
+        title: '设置起点',
+        name: '设置起点',
+        action: function(e) {
+          addMarker('from', e.latLng.lat(), e.latLng.lng(), '起点');
+        }
+      },
+      {
+        title: '设置终点',
+        name: '设置终点',
+        action: function(e) {
+          addMarker('to', e.latLng.lat(), e.latLng.lng(), '终点');
+        }
+      },
+      {
+        title: '在此居中',
+        name: '在此居中',
+        action: function(e) {
+          setCenter(e.latLng);
+        }
+      }
+    ]
+  });
+
+  function setCenter(position) {
+    map.setCenter(position.lat(), position.lng());
+  }
+
   function geolocate() {
     if (!currentPosition) {
       GMaps.geolocate({
         success: function(position) {
+          map.setCenter(position.lat(), position.lng());
           currentPosition = position;
         },
         error: function(error) {
@@ -35,51 +67,71 @@ $(function() {
     }
   }
 
-  function setCenter(position) {
-    map.setCenter(position.coords.latitude, position.coords.longitude);
+  function geocode(e) {
+    if (e.keyCode == 13) {
+      var $this = $(this);
+      GMaps.geocode({
+        address: $this.val(),
+        callback: function(results, status) {
+          if (status == 'OK') {
+            console.log(results);
+            var position = results[0].geometry.location,
+              lat = position.lat(), lng = position.lng();
+            setCenter(position);
+            addMarker($this.data('type'), lat, lng, $this.attr('title'));
+          }
+        }
+      });
+    }
   }
 
-  function addMarker(type) {
-    var coords = currentPosition.coords;
+  function addMarker(type, latitude, longitude, title) {
     marker[type] && map.removeMarker(marker[type]);
     marker[type] = map.addMarker({
-      lat: coords.latitude,
-      lng: coords.longitude,
+      lat: latitude,
+      lng: longitude,
+      title: title,
+      animation: 'drop',
       draggable: true,
       dragend: generateRoute
     });
     generateRoute();
-    // BAD SMELL
-    setCenter(currentPosition);
   }
 
   function drawRoute(from, to) {
-    if (from && to) {
-      map.cleanRoute();
-      map.drawRoute({
-        origin: [from.$a, from.ab],
-        destination: [to.$a, to.ab],
-        travelMode: 'walking',
-        strokeColor: '#000',
-        strokeOpacity: 0.6,
-        strokeWeight: 6
-      });
-    }
+    map.cleanRoute();
+    map.drawRoute({
+      origin: [from.lat(), from.lng()],
+      destination: [to.lat(), to.lng()],
+      travelMode: 'walking',
+      strokeColor: '#000',
+      strokeOpacity: 0.6,
+      strokeWeight: 3
+    });
   }
 
   function generateRoute() {
     var from = marker.from && marker.from.position,
       to = marker.to && marker.to.position;
-    drawRoute(from, to);
+    if (from && to) {
+      drawRoute(from, to);
+      map.fitZoom();
+    }
+  }
+
+  function useCurrentPosition(type, title) {
+    geolocate();
+    var latitude = currentPosition.lat(),
+      longitude = currentPosition.lng();
+    addMarker(type, latitude, longitude, title);
   }
 
   $fromPosition.click(function() {
-    geolocate();
-    addMarker('from');
+    useCurrentPosition('from', '起点');
   });
   $toPosition.click(function() {
-    geolocate();
-    addMarker('to');
+    useCurrentPosition('to', '终点');
   });
   $generateRoute.click(generateRoute);
+  $body.on('keypress', '.tour-route input:text', geocode);
 });
