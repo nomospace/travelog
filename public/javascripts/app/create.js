@@ -67,25 +67,27 @@ $(function() {
     }
   }
 
-  function geocode(e) {
-    if (e.keyCode == 13) {
-      var $this = $(this);
-      GMaps.geocode({
-        address: $this.val(),
-        callback: function(results, status) {
-          if (status == 'OK') {
-            console.log(results);
-            // TODO ADD suggest module
-//            $this.val(results[1]['formatted_address']);
-            var position = results[0]['geometry'].location,
-              lat = position.lat(), lng = position.lng();
-            setCenter(position);
-            addMarker($this.data('type'), lat, lng, $this.attr('title'));
-          }
+  var geocode = _.debounce(function() {
+//    if (e.keyCode == 13) {
+    var $this = $(this);
+    GMaps.geocode({
+      address: $this.val(),
+      callback: function(results, status) {
+        if (status == 'OK') {
+          // TODO add suggest module
+//          enableAutoComplete($this, results);
+          console.log(results);
+          var address = results[0]['formatted_address'],
+            position = results[0]['geometry'].location,
+            lat = position.lat(), lng = position.lng();
+          $this.val(address).attr('title', address);
+          setCenter(position);
+          addMarker($this.data('type'), lat, lng, $this.attr('title'));
         }
-      });
-    }
-  }
+      }
+    });
+//    }
+  }, 500);
 
   function addMarker(type, latitude, longitude, title) {
     marker[type] && map.removeMarker(marker[type]);
@@ -135,5 +137,9 @@ $(function() {
     useCurrentPosition('to', '终点');
   });
   $generateRoute.click(generateRoute);
-  $body.on('keypress', '.tour-route input:text', geocode);
+  $body.on('input', '.tour-route input:text', geocode);
+
+//  function enableAutoComplete(target, results) {
+//    target.suggest(results);
+//  }
 });
