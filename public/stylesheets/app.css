@@ -51,6 +51,10 @@ ul.breadcrumbs {
   width: 260px;
 }
 
+.side-column input[type=text] {
+  font-size: 12px;
+}
+
 .tour-setup h5 {
   vertical-align: top;
 }

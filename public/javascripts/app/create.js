@@ -75,7 +75,9 @@ $(function() {
         callback: function(results, status) {
           if (status == 'OK') {
             console.log(results);
-            var position = results[0].geometry.location,
+            // TODO ADD suggest module
+//            $this.val(results[1]['formatted_address']);
+            var position = results[0]['geometry'].location,
               lat = position.lat(), lng = position.lng();
             setCenter(position);
             addMarker($this.data('type'), lat, lng, $this.attr('title'));
