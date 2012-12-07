@@ -1,7 +1,7 @@
 module.exports = {
   debug: true,
   name: 'riding-web',
-  description: '一个骑行网站',
+  description: 'riding-web',
   version: '0.0.1',
 
   sessionSecret: 'riding',

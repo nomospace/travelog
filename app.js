@@ -1,7 +1,3 @@
-/**
- * 模块依赖以及 app 入口
- */
-
 var routes = require('./routes');
 var user = require('./routes/user');
 var config = require('./config');

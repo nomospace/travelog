@@ -1,8 +1,12 @@
 $(function() {
   'use strict';
+  var $body = $('body');
+  $body.append($('#J_map_alert_tpl').html());
+
   var $fromPosition = $('#J_from_position'),
     $toPosition = $('#J_to_position'),
-    $generateRoute = $('#J_generate_route');
+    $generateRoute = $('#J_generate_route'),
+    $mapAlert = $('#J_map_alert');
 
   var marker = {},
     currentPosition;
@@ -13,19 +17,23 @@ $(function() {
     lng: 121.47675279999999
   });
 
-  GMaps.geolocate({
-    success: function(position) {
-      currentPosition = position;
-    },
-    error: function(error) {
-      alert('Geolocation failed: ' + error.message);
-    },
-    not_supported: function() {
-      alert('Your browser does not support geolocation');
-    },
-    always: function() {
+  function geolocate() {
+    if (!currentPosition) {
+      GMaps.geolocate({
+        success: function(position) {
+          currentPosition = position;
+        },
+        error: function(error) {
+          $mapAlert.find('p').text(error.message).end().reveal();
+        },
+        not_supported: function() {
+          alert('Your browser does not support geolocation');
+        },
+        always: function() {
+        }
+      });
     }
-  });
+  }
 
   function setCenter(position) {
     map.setCenter(position.coords.latitude, position.coords.longitude);
@@ -66,9 +74,11 @@ $(function() {
   }
 
   $fromPosition.click(function() {
+    geolocate();
     addMarker('from');
   });
   $toPosition.click(function() {
+    geolocate();
     addMarker('to');
   });
   $generateRoute.click(generateRoute);
