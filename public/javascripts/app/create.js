@@ -52,7 +52,7 @@ $(function() {
     if (!currentPosition) {
       GMaps.geolocate({
         success: function(position) {
-          map.setCenter(position.lat(), position.lng());
+          map.setCenter(position.coords.latitude, position.coords.longitude);
           currentPosition = position;
         },
         error: function(error) {
@@ -126,9 +126,8 @@ $(function() {
   function useCurrentPosition(type, title) {
     geolocate();
     if (currentPosition) {
-      var latitude = currentPosition.lat(),
-        longitude = currentPosition.lng();
-      addMarker(type, latitude, longitude, title);
+      var coords = currentPosition.coords;
+      addMarker(type, coords.latitude, coords.longitude, title);
     }
   }
 
