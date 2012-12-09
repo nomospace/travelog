@@ -67,26 +67,26 @@ $(function() {
     }
   }
 
-  var geocode = _.debounce(function() {
-//    if (e.keyCode == 13) {
-    var $this = $(this);
-    GMaps.geocode({
-      address: $this.val(),
-      callback: function(results, status) {
-        if (status == 'OK') {
-          // TODO add suggest module
+  var geocode = _.debounce(function(e) {
+    if (e.keyCode == 13) {
+      var $this = $(this);
+      GMaps.geocode({
+        address: $this.val(),
+        callback: function(results, status) {
+          if (status == 'OK') {
+            // TODO add suggest module
 //          enableAutoComplete($this, results);
-          console.log(results);
-          var address = results[0]['formatted_address'],
-            position = results[0]['geometry'].location,
-            lat = position.lat(), lng = position.lng();
-          $this.val(address).attr('title', address);
-          setCenter(position);
-          addMarker($this.data('type'), lat, lng, $this.attr('title'));
+            console.log(results);
+            var address = results[0]['formatted_address'],
+              position = results[0]['geometry'].location,
+              lat = position.lat(), lng = position.lng();
+            $this.val(address).attr('title', address);
+            setCenter(position);
+            addMarker($this.data('type'), lat, lng, $this.attr('title'));
+          }
         }
-      }
-    });
-//    }
+      });
+    }
   }, 500);
 
   function addMarker(type, latitude, longitude, title) {
@@ -125,9 +125,11 @@ $(function() {
 
   function useCurrentPosition(type, title) {
     geolocate();
-    var latitude = currentPosition.lat(),
-      longitude = currentPosition.lng();
-    addMarker(type, latitude, longitude, title);
+    if (currentPosition) {
+      var latitude = currentPosition.lat(),
+        longitude = currentPosition.lng();
+      addMarker(type, latitude, longitude, title);
+    }
   }
 
   $fromPosition.click(function() {
@@ -137,7 +139,7 @@ $(function() {
     useCurrentPosition('to', '终点');
   });
   $generateRoute.click(generateRoute);
-  $body.on('input', '.tour-route input:text', geocode);
+  $body.on('keypress', '.tour-route input:text', geocode);
 
 //  function enableAutoComplete(target, results) {
 //    target.suggest(results);
