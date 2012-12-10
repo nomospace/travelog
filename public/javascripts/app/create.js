@@ -1,18 +1,20 @@
 $(function() {
   'use strict';
-  var $body = $('body');
+  var $doc = $(window),
+    $body = $('body');
   $body.append($('#J_map_alert_tpl').html());
 
   var $fromPosition = $('#J_from_position'),
     $toPosition = $('#J_to_position'),
     $generateRoute = $('#J_generate_route'),
-    $mapAlert = $('#J_map_alert');
+    $mapAlert = $('#J_map_alert'),
+    $map = $('#J_map');
 
   var marker = {},
     currentPosition;
 
   var map = new GMaps({
-    div: '#J_map',
+    div: $map[0],
     lat: 31.225394428808663,
     lng: 121.47675279999999
   });
@@ -143,4 +145,9 @@ $(function() {
 //  function enableAutoComplete(target, results) {
 //    target.suggest(results);
 //  }
+  $doc.resize(function() {
+    var height = $doc.height() - 180;
+    $map.height(height + 'px');
+  });
+  $doc.resize();
 });
