@@ -1,3 +1,22 @@
 extends layout
 
+block append extrascript
+
 block content
+  - var riddingName = '传说中的川藏线', User = User||{}
+  div.panel.top-nav
+    a(href='/',title='#{User.name}').user-link
+      img(src='http://tp3.sinaimg.cn/1760951922/50/5637592484/1')
+    h5.name #{User.name}
+    p.desc 参与了3个骑行活动 总骑行距离13922000KM
+  div.main-list
+    a(href='/create').success.button 创建新骑行活动
+    ul.tour-list.clearfix
+      li.tour-item
+        div.cover
+          a
+            img(src='/images/cover-copy.jpg')
+        div.name
+          span #{riddingName}
+        div.date
+          span 创建于

@@ -150,4 +150,5 @@ $(function() {
     $map.height(height + 'px');
   });
   $doc.resize();
+
 });

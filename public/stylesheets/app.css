@@ -105,7 +105,44 @@ ul.breadcrumbs {
 }
 
 /* -----------------------------------------
- Page Name 2
+ list
 ----------------------------------------- */
 
+.top-nav, .main-list {
+  margin: 0 15px 20px;
+}
+
+.top-nav .user-link {
+  float: left;
+  padding: 2px;
+  border: 1px solid #e2e2e9;
+}
+
+.top-nav .name, .top-nav .desc {
+  margin-left: 70px;
+  margin-top: 0;
+}
+
+.tour-list {
+  margin-top: 10px;
+}
+
+.tour-list .tour-item {
+  float: left;
+  width: 280px;
+  padding: 10px;
+  border: 1px solid #f6f6f6;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background: url('../images/list-item-bg.png') repeat-x bottom;
+  list-style: none;
+}
+
+.tour-list .tour-item .name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tour-list .tour-item .date {
+  font-size: 12px;
+}
 
