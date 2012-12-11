@@ -2,13 +2,15 @@ $(function() {
   'use strict';
   var $doc = $(window),
     $body = $('body');
-  $body.append($('#J_map_alert_tpl').html());
+  $body.append($('#J_map_alert_tpl').html(), $('#J_invite_friends_tpl').html());
 
   var $fromPosition = $('#J_from_position'),
     $toPosition = $('#J_to_position'),
     $generateRoute = $('#J_generate_route'),
     $mapAlert = $('#J_map_alert'),
-    $map = $('#J_map');
+    $map = $('#J_map'),
+    $inviteFriendsDialog = $('#J_invite_friends_dialog'),
+    $inviteFriends = $('#J_invite_friends');
 
   var marker = {},
     currentPosition;
@@ -142,13 +144,17 @@ $(function() {
   $generateRoute.click(generateRoute);
   $body.on('keypress', '.tour-route input:text', geocode);
 
-//  function enableAutoComplete(target, results) {
-//    target.suggest(results);
-//  }
+  $inviteFriends.click(function() {
+    $inviteFriendsDialog.reveal();
+  });
+
   $doc.resize(function() {
     var height = $doc.height() - 180;
     $map.height(height + 'px');
   });
   $doc.resize();
 
+//  function enableAutoComplete(target, results) {
+//    target.suggest(results);
+//  }
 });

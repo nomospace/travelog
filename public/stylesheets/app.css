@@ -107,7 +107,8 @@ ul.breadcrumbs {
   white-space: nowrap;
 }
 
-.use-position {
+.use-position,
+.invite-friend {
   cursor: pointer;
 }
 
@@ -117,8 +118,7 @@ ul.breadcrumbs {
 
 .tour-to,
 .tour-from,
-.tour-name,
-.invite-friend {
+.tour-name {
   margin-top: 10px !important;
 }
 

@@ -4,15 +4,15 @@ var config = require('../config');
 var crypto = require('crypto');
 
 exports.showTour = function(req, res) {
-  res.render('tour-setup', {'page': 'create'});
+  res.render('tour-setup', {'page': 'tour-setup'});
 };
 
 exports.createTour = function(req, res) {
-  res.render('tour-setup', {'page': 'create', 'tag': 'create'});
+  res.render('tour-setup', {'page': 'tour-setup', 'tag': 'create'});
 };
 
 exports.editTour = function(req, res) {
-  res.render('tour-setup', {'page': 'create', 'tag': 'edit'});
+  res.render('tour-setup', {'page': 'tour-setup', 'tag': 'edit'});
 };
 
 exports.showTours = function(req, res) {

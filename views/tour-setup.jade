@@ -9,12 +9,14 @@ block append extrascript
       h3 Geolocation failed!
       p
       a.close-reveal-modal &#215;
-  script#J_weibo_dialog(type='cache/tpl')
-    div.reveal-modal.medium
+  script#J_invite_friends_tpl(type='cache/tpl')
+    div#J_invite_friends_dialog.reveal-modal.medium
       h3 邀请好友
-      div
-        input.text
-        a.button.expand.postfix
+      div.row.collapse
+        div.ten.columns.mobile-three
+          input(type='text', placeholder='请输入用户名')
+        div.two.columns.mobile-one
+          a.button.expand.postfix 搜索
       a.close-reveal-modal &#215;
 
 block content
@@ -56,14 +58,6 @@ block content
           a#J_generate_route.success.button 生成路线
         h5.foundicon-plus 邀请朋友 
           //input.invite-friend(type='text', placeholder='请输入用户名')
-          span#J_invite_friends.label.radius 邀请
+          span#J_invite_friends.label.radius.invite-friend 邀请
   div#J_map.main-column.panel
-//  div.reveal-modal.medium.open(style='top: 166px; opacity: 1; visibility: visible; display: block;')
-//    h3 邀请好友
-//    div.row.collapse
-//      div.ten.columns.mobile-three
-//        input(type='text', placeholder='请输入用户名')
-//      div.two.columns.mobile-one
-//        a.button.expand.postfix 搜索
-//    a.close-reveal-modal &#215;
 
