@@ -16,9 +16,11 @@ html
       ul.right
         li
           if(locals.User)
-            a(href='/') #{User.name}
+            a(href='/user/1/tours') #{User.name}
           else
             a(href='/login') 登录
+    a(href='https://github.com/nomospace/riding-web').fork2github
+      img(src='/images/octocat-icon.png', alt='Fork me on GitHub')
     block content
     script(src='/javascripts/lib/jquery.js')
     script(src='/javascripts/lib/underscore.js')

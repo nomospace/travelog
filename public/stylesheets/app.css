@@ -30,6 +30,24 @@ ul.breadcrumbs {
   margin-right: 15px !important;
 }
 
+.fork2github {
+  position: fixed;
+  top: 6px;
+  right: 4px;
+  width: 30px;
+  height: 30px;
+}
+
+.top-bar ul.right {
+  margin-right: 35px;
+}
+
+.top-bar ul > li a:not(.button) {
+  height: auto;
+  line-height: 42px;
+  padding: 0 10px;
+}
+
 /* --------------------------------------------------
    Table of Contents
 -----------------------------------------------------
