@@ -10,11 +10,11 @@ block content
     h5.name #{User.name}
     p.desc 参与了3个骑行活动 总骑行距离13922000KM
   div.main-list
-    a(href='/create').success.button 创建新骑行活动
+    a(href='/user/1/tour/create/').success.button 创建新骑行活动
     ul.tour-list.clearfix
       li.tour-item
         div.cover
-          a
+          a(href='/user/1/tour/1/edit')
             img(src='/images/cover-copy.jpg')
         div.name
           span #{riddingName}

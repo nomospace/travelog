@@ -33,8 +33,10 @@ app.configure('development', function() {
 });
 
 app.get('/', routes.index);
-app.get('/list', user.list);
-app.get('/create', user.create);
+app.get('/user/:uid/tours', user.showTours);
+app.get('/user/:uid/tour/create', user.createTour);
+app.get('/user/:uid/tour/:tid', user.showTour);
+app.get('/user/:uid/tour/:tid/edit', user.editTour);
 app.get('/login', user.login);
 app.post('/login', user.doLogin);
 

@@ -3,12 +3,20 @@ var sanitize = require('validator').sanitize;
 var config = require('../config');
 var crypto = require('crypto');
 
-exports.create = function(req, res) {
-  res.render('create', {'page': 'create'});
+exports.showTour = function(req, res) {
+  res.render('tour-setup', {'page': 'create'});
 };
 
-exports.list = function(req, res) {
-  res.render('list', {'page': 'list'});
+exports.createTour = function(req, res) {
+  res.render('tour-setup', {'page': 'create', 'tag': 'create'});
+};
+
+exports.editTour = function(req, res) {
+  res.render('tour-setup', {'page': 'create', 'tag': 'edit'});
+};
+
+exports.showTours = function(req, res) {
+  res.render('tours', {'page': 'tour'});
 };
 
 exports.login = function(req, res) {
@@ -22,7 +30,7 @@ exports.doLogin = function(req, res) {
   // store session cookie
   genSession(user, res);
   res.locals({'User': req.session.user = user});
-  res.redirect('/create');
+  res.redirect('/user/1/tours');
 };
 
 exports.authUser = function(req, res, next) {
