@@ -10,7 +10,9 @@
     "jade": "0.27.7",
     "less-middleware": "0.1.9",
     "markdown": "0.4.0",
-    "validator": "0.4.19"
+    "validator": "0.4.19",
+    "weibo": "0.6.7",
+    "canvas": "0.13.1"
   },
   "devDependencies": {},
   "repository": {

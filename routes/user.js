@@ -6,6 +6,10 @@ var crypto = require('crypto');
 // http://cnodejs.org/topic/4f939c84407edba2143c12f7
 //var Canvas = require('canvas');
 
+// TODO node-weibo
+// https://github.com/fengmk2/node-weibo
+//var Weibo = require('weibo');
+
 exports.showTour = function(req, res) {
   res.render('tour-setup', {'page': 'tour-setup'});
 };
