@@ -2,6 +2,9 @@
 var sanitize = require('validator').sanitize;
 var config = require('../config');
 var crypto = require('crypto');
+// TODO node-canvas
+// http://cnodejs.org/topic/4f939c84407edba2143c12f7
+//var Canvas = require('canvas');
 
 exports.showTour = function(req, res) {
   res.render('tour-setup', {'page': 'tour-setup'});
