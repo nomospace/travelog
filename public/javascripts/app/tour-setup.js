@@ -36,6 +36,27 @@ $(function() {
         name: '设置终点',
         action: function(e) {
           addMarker('to', e.latLng.lat(), e.latLng.lng(), '终点');
+//          var from = marker.from && marker.from.position,
+//            to = marker.to && marker.to.position;
+          // http://hpneo.github.com/gmaps/documentation.html#GMaps-getElevations
+//          map.getElevations({
+//            locations: [
+//              [from.lat(), from.lng()],
+//              [to.lat(), to.lng()]
+//            ],
+//            path: true,
+//            callback: function(a, b, c, d) {
+//              console.log(a, b, c, d);
+//            }
+//          });
+          // http://hpneo.github.com/gmaps/documentation.html#GMaps-getRoutes
+//          map.getRoutes({
+//            origin: [from.lat(), from.lng()],
+//            destination: [to.lat(), to.lng()],
+//            callback: function(a, b, c, d) {
+//              console.log(a, b, c, d);
+//            }
+//          });
         }
       },
       {
@@ -114,7 +135,7 @@ $(function() {
       travelMode: 'walking',
       strokeColor: '#000',
       strokeOpacity: 0.6,
-      strokeWeight: 3
+      strokeWeight: 5
     });
   }
 
