@@ -6,16 +6,17 @@ var path = require('path');
 var express = require('express');
 var app = express();
 var appRoot = './' || __dirname;
+var port = config.port;
 
 app.configure(function() {
-  app.set('port', config.port);
+  app.set('port', port);
   app.set('views', appRoot + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
-  app.use(express.logger('dev'));
+//  app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.cookieParser('your secret here'));
+  app.use(express.cookieParser(config.authCookieName));
   app.use(express.session({secret: config.sessionSecret}));
   app.use(express.static(path.join(appRoot, 'public')));
   app.use(require('less-middleware')({src: appRoot + '/public'}));
@@ -40,6 +41,6 @@ app.get('/user/:uid/tour/:tid/edit', user.editTour);
 app.get('/login', user.login);
 app.post('/login', user.doLogin);
 
-http.createServer(app).listen(app.get('port'), function() {
-  console.log("Express server listening on port " + app.get('port'));
+http.createServer(app).listen(port, function() {
+  console.log(config.host + ':' + config.port);
 });
