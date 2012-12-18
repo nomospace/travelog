@@ -9,7 +9,7 @@
     "express": "3.0.3",
     "jade": "0.27.7",
     "less-middleware": "0.1.9",
-    "markdown": "0.4.0",
+    "markdown-js": "~0.0.3",
     "validator": "0.4.19",
     "weibo": "0.6.7",
     "canvas": "0.13.1"
