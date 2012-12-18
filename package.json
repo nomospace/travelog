@@ -19,6 +19,9 @@
     "type": "git",
     "url": "https://github.com/nomospace/riding-web.git"
   },
+  "scripts": {
+    "test": "node test/index.js"
+  },
   "keywords": [
     "骑行", "路线", "地图"
   ],
