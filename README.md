@@ -4,8 +4,8 @@ Riding-web [![Build Status](https://secure.travis-ci.org/nomospace/riding-web.pn
 ## 安装部署
 
 ```sh
-$ git clone https://github.com/nomospace/riding-web.git
-$ cd riding-web
-$ npm install
-$ node app.js
+$ git clone https://github.com/nomospace/riding-web.git  
+$ cd riding-web  
+$ npm install  
+$ node app.js  
 ```

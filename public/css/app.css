@@ -1,4 +1,8 @@
 /* common  */
+body {
+  background: url('../images/bg-noise-tile.png') repeat;
+}
+
 .clearfix:after {
   clear: both;
   content: '.';
@@ -57,11 +61,14 @@ ul.breadcrumbs {
 */
 
 /* -----------------------------------------
-  Shared Styles
+  index
 ----------------------------------------- */
+.index-page {
+  margin: 0 10px;
+}
 
 /* -----------------------------------------
-  create
+ create
 ----------------------------------------- */
 
 .side-column {
@@ -151,7 +158,7 @@ ul.breadcrumbs {
   padding: 10px;
   border: 1px solid #f6f6f6;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  background: url('../images/list-item-bg.png') repeat-x bottom;
+  background: url('../images/list-item-bg.png') repeat-x bottom #fff;
   list-style: none;
 }
 

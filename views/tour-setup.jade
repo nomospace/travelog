@@ -1,9 +1,9 @@
 extends layout
 
 block append extrascript
-  script(src='/javascripts/lib/jquery.suggest.js')
+  script(src='/js/lib/jquery.suggest.js')
   script(src='http://maps.google.com/maps/api/js?sensor=true')
-  script(src='/javascripts/lib/gmaps.js')
+  script(src='/js/lib/gmaps.js')
   script#J_map_alert_tpl(type='cache/tpl')
     div#J_map_alert.reveal-modal.medium
       h3 Geolocation failed!

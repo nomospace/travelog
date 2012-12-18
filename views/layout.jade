@@ -1,12 +1,12 @@
-doctype 5
+!!! 5
 html
   head
     meta(charset='utf8')
     title= title
-    link(rel='stylesheet', href='/stylesheets/foundation.css')
-    link(rel='stylesheet', href='/stylesheets/social_foundicons.css')
-    link(rel='stylesheet', href='/stylesheets/general_enclosed_foundicons.css')
-    link(rel='stylesheet', href='/stylesheets/app.css')
+    link(rel='stylesheet', href='/css/foundation.css')
+    link(rel='stylesheet', href='/css/social_foundicons.css')
+    link(rel='stylesheet', href='/css/general_enclosed_foundicons.css')
+    link(rel='stylesheet', href='/css/app.css')
   body.clearfix
     nav.top-bar
       ul
@@ -22,9 +22,9 @@ html
     a(href='https://github.com/nomospace/riding-web').fork2github
       img(src='/images/octocat-icon.png', alt='Fork me on GitHub')
     block content
-    script(src='/javascripts/lib/jquery.js')
-    script(src='/javascripts/lib/underscore.js')
-    script(src='/javascripts/lib/foundation.js')
+    script(src='/js/lib/jquery.js')
+    script(src='/js/lib/underscore.js')
+    script(src='/js/lib/foundation.js')
     block extrascript
-    script(src='/javascripts/app/main.js')
-    script(src='/javascripts/app/#{page}.js')
+    script(src='/js/app/main.js')
+    script(src='/js/app/#{page}.js')
