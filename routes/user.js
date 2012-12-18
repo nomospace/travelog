@@ -49,10 +49,11 @@ exports.authUser = function(req, res, next) {
 
 function genSession(user, res) {
   var authToken = encrypt(user.name + '\t' + user.pass, config.sessionSecret);
-  // cookie 有效期30天
+  // cookie 有效期7天
   res.cookie(config.authCookieName, authToken, {
     path: '/',
-    maxAge: 1000 * 60 * 60 * 24 * 30
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+    secure: true
   });
 }
 
