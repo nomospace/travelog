@@ -1,6 +1,6 @@
 {
-  "name": "riding-web",
-  "version": "0.0.2",
+  "name": "travelog",
+  "version": "0.0.1",
   "author": "nomospace",
   "scripts": {
     "start": "node app"
@@ -11,13 +11,12 @@
     "less-middleware": "0.1.9",
     "markdown-js": "~0.0.3",
     "validator": "0.4.19",
-    "weibo": "0.6.7",
-    "canvas": "0.13.1"
+    "weibo": "0.6.7"
   },
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/nomospace/riding-web.git"
+    "url": "https://github.com/nomospace/travelog.git"
   },
   "keywords": [
     "骑行", "路线", "地图"

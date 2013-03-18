@@ -3,6 +3,10 @@ body {
   background: url('../images/bg-noise-tile.png') repeat;
 }
 
+code{
+  font-family: monaco, consolas, monospace;
+}
+
 .clearfix:after {
   clear: both;
   content: '.';
